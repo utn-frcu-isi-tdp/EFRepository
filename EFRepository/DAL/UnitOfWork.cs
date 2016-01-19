@@ -21,7 +21,7 @@ namespace EFRepository
                 {
                     this.iPersonaRepository = new GenericRepository<Persona>(context);
                 }
-                return PersonaRepository;
+                return this.iPersonaRepository;
             }
         }
 
@@ -34,7 +34,7 @@ namespace EFRepository
                 {
                     this.iTelefonoRepository = new GenericRepository<Telefono>(context);
                 }
-                return TelefonoRepository;
+                return this.iTelefonoRepository;
             }
         }
 

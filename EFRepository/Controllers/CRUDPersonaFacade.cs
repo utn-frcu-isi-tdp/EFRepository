@@ -8,36 +8,35 @@ namespace EFRepository.Controllers
 {
     public class CRUDPersonaFacade
     {
-        private UnitOfWork unitOfWork = new UnitOfWork();
+        private UnitOfWork iUnitOfWork = new UnitOfWork();
 
         public void Create(Persona pPersona)
         {
-            unitOfWork.PersonaRepository.Insert(pPersona);
-            unitOfWork.Save();
+            iUnitOfWork.PersonaRepository.Insert(pPersona);
+            iUnitOfWork.Save();
         }
 
         public void Update(Persona pPersona)
         {
-            unitOfWork.PersonaRepository.Update(pPersona);
-            unitOfWork.Save();
+            iUnitOfWork.PersonaRepository.Update(pPersona);
+            iUnitOfWork.Save();
         }
 
         public void Delete(Persona pPersona)
         {
-            Persona mPersona = unitOfWork.PersonaRepository.GetByID(pPersona.PersonaId);
-            unitOfWork.PersonaRepository.Delete(mPersona);
-            unitOfWork.Save();
+            Persona mPersona = iUnitOfWork.PersonaRepository.GetByID(pPersona.PersonaId);
+            iUnitOfWork.PersonaRepository.Delete(mPersona);
+            iUnitOfWork.Save();
         }
 
         public List<Persona> GetAll()
         {
-            return unitOfWork.PersonaRepository.Queryable.ToList();
-            
+            return iUnitOfWork.PersonaRepository.Queryable.ToList();
         }
 
         public Persona GetById(int pPersonaId)
         {
-            return unitOfWork.PersonaRepository.GetByID(pPersonaId); ;
+            return iUnitOfWork.PersonaRepository.GetByID(pPersonaId); ;
         }
 
 
